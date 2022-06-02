@@ -1,0 +1,101 @@
+on:
+  push:
+    branches:
+      - 'main'
+name: CD
+jobs:
+  release-charts:
+    name: Release Helm Charts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # pin@v2
+        with:
+          path: main
+          fetch-depth: 0
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # pin@v2
+        with:
+          ref: gh-pages
+          path: gh-pages
+
+      - name: Install Helm
+        uses: azure/setup-helm@18bc76811624f360dbd7f18c2d4ecb32c7b87bab
+        with:
+          version: v3.4.0
+
+      - name: Get changed files
+        id: get-changed-files
+        uses: jitterbit/get-changed-files@b17fbb00bdc0c0f63fcf166580804b4d2cdc2a42 # v1
+        with:
+          format: json
+
+      - name: Get changed charts
+        id: changed-charts
+        uses: actions/github-script@441359b1a30438de65712c2fbca0abe4816fa667 # v5
+        env:
+          ADDED_MODIFIED_FILES: ${{ steps.get-changed-files.outputs.added_modified }}
+          RENAMED_FILES: ${{ steps.get-changed-files.outputs.renamed }}
+        with:
+          result-encoding: string
+          script: |
+            // Clump together rename/added/changed into one var
+            const changedFiles = JSON.parse(process.env.ADDED_MODIFIED_FILES || '[]').concat(JSON.parse(process.env.RENAMED_FILES || '[]'))
+            console.log('Changed files:', changedFiles)
+            // We can filter by only Chart.yaml since our CI enforces that changed charts
+            // have their version bumped
+            const changedCharts = changedFiles.filter(f => f.includes('Chart.yaml'))
+            console.log('Changed charts:', changedCharts)
+            return changedCharts.join(' ')
+
+      - name: Create packages and repo index
+        shell: bash
+        env:
+          GITHUB_WORKSPACE: ${{ github.workspace }}
+          CHANGED_CHARTS: ${{ steps.changed-charts.outputs.result }}
+        run: |
+          #!/bin/bash
+          # Note: This will break if file paths have spaces in them 
+          package_dir="$GITHUB_WORKSPACE/gh-pages/packages"
+          mkdir -p package_dir
+
+          # Within the branch that has changed charts pushed to it
+          # we package all of the changed charts into the gh-pages branch
+          # to be published internally
+          cd "$GITHUB_WORKSPACE/main"
+          for changed_chart_path in $CHANGED_CHARTS
+          do
+            echo "Packaging $(dirname $changed_chart_path) to $package_dir...."
+            helm package -d "$package_dir" $(dirname $changed_chart_path)
+          done
+
+          cd "$GITHUB_WORKSPACE/gh-pages"
+          if [ -n "$CHANGED_CHARTS" ]; then  
+            if [ -f index.yaml ]; then
+              echo "Charts have changed re-indexing..."
+              
+              # The fancy mv's are so that we preserve the creation
+              # timestamps of packages that have not been modified by
+              # this commit. See https://github.com/helm/helm/issues/7363
+              helm repo index --merge index.yaml packages/
+              mv -f packages/*.tgz .
+              mv -f packages/index.yaml index.yaml
+            else
+              echo "Initializing index..."
+              mv -f packages/*.tgz .
+              helm repo index .
+            fi
+
+            # Add the new packages and updated index file
+            # then push them up to the gh-pages branch to be
+            # published
+            git config user.name github-actions
+            git config user.email github-actions@github.com
+            git add .
+            git status
+            git commit -m "Update charts"
+            git push
+          else
+            echo "No chart changes detected."
+          fi
