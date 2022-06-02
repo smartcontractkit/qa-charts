@@ -1,6 +1,5 @@
 # These values are auto-generated and set by the calling integration framework
 remote_test_runner:
-  private_helm_repo_pull: ''
   env_namespace: ''
   test_name: '@soak-ocr'
   config_file_contents: should be auto generated
