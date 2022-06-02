@@ -7,9 +7,7 @@ This repository contains helm charts used by the chainlink organization mostly i
 You can add the published chart repository by pointing helm to the `gh-pages` branch with a personal access token (PAT) that has at least read-only access to the repository.
 
 ```sh
-helm repo add chainlink-qa https://<PAT>@raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
-# or
-helm repo add chainlink https://raw.githubusercontent.com/smartcontractkit/charts/gh-pages/ --password <PAT> --username dummy # username isnt used, but needs to be a value for helm to accept the command
+helm repo add chainlink-qa https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
 helm search repo chainlink
 ```
 
