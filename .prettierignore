@@ -1,5 +1,0 @@
-charts/**/templates/**/*.yml
-charts/**/templates/**/*.yaml
-charts/**/README.md
-node_modules/
-index.yaml
