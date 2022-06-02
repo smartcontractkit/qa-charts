@@ -15,7 +15,7 @@ data:
     apk add build-base
     
     echo "Adding private Helm repos"
-    helm repo add chainlink-qa https://{{ .Values.remote_test_runner.private_helm_repo_pull }}@raw.githubusercontent.com/smartcontractkit/charts/gh-pages/
+    helm repo add chainlink-qa https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
 
     echo "Waiting for $TEST_FILE to start being copied"
     until [ -f $TEST_FILE ]
