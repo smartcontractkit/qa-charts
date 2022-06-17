@@ -145,6 +145,15 @@ entries:
   remote-test-runner:
   - apiVersion: v1
     appVersion: 1.0.0
+    created: "2022-06-17T07:01:35.424764296Z"
+    description: A Helm chart to represent a long test runner in your K8s cluster
+    digest: 24aa7562b72c8ab28e8906637c1c1d4ba907320e178e66a98053413120cc62ce
+    name: remote-test-runner
+    urls:
+    - remote-test-runner-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v1
+    appVersion: 1.0.0
     created: "2022-06-02T09:37:44.229705613Z"
     description: A Helm chart to represent a long test runner in your K8s cluster
     digest: 8e621d07e29292702170082a10b033f0b3bfb68a6894d9fc0a8b98ccda1615bd
@@ -198,4 +207,4 @@ entries:
     urls:
     - solana-validator-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-02T09:37:44.22921721Z"
+generated: "2022-06-17T07:01:35.424279972Z"
