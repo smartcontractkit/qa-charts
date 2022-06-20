@@ -56,3 +56,5 @@ env:
   explorer_url:
   explorer_access_key:
   explorer_secret:
+  session_timeout: "999h"
+
