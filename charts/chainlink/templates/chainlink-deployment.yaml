@@ -5,7 +5,7 @@ kind: StatefulSet
 kind: Deployment
 {{ end }}
 metadata:
-  name: {{ .Release.Name }}-node
+  name: {{ .Release.Name }}
 spec:
   {{ if .Values.db.stateful }}
   serviceName: {{ .Release.Name }}-service
@@ -23,12 +23,12 @@ spec:
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}-node
+      app: {{ .Release.Name }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}-node
+        app: {{ .Release.Name }}
         release: {{ .Release.Name }}
       annotations:
         prometheus.io/scrape: 'true'
