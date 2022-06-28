@@ -3,6 +3,15 @@ entries:
   chainlink:
   - apiVersion: v1
     appVersion: 1.0.1
+    created: "2022-06-28T07:00:58.005354464Z"
+    description: A Helm chart for Kubernetes
+    digest: 53cd396204c783784df3c3d738b625fb418957e3b94bbc3b257fd3c1695a2e16
+    name: chainlink
+    urls:
+    - chainlink-0.0.6.tgz
+    version: 0.0.6
+  - apiVersion: v1
+    appVersion: 1.0.1
     created: "2022-06-27T21:35:52.720457964Z"
     description: A Helm chart for Kubernetes
     digest: d08944101b07aa81482f8c2d5c63fb3597a2f168c71301fad974415a1f6b80f4
@@ -252,4 +261,4 @@ entries:
     urls:
     - solana-validator-0.1.0.tgz
     version: 0.1.0
-generated: "2022-06-27T21:35:52.719853453Z"
+generated: "2022-06-28T07:00:58.004756467Z"
