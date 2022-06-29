@@ -2,11 +2,11 @@
 remote_test_runner:
   env_namespace: ''
   test_name: '@soak-ocr'
-  config_file_contents: should be auto generated
   slack_api: default
   slack_channel: default
   slack_user_id: default
-  remote_test_size: 0
+  test_file_size: 0
+  test_file: /root/remote.test
   access_port: 8080
 
 resources:
