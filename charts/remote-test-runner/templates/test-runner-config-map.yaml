@@ -10,9 +10,6 @@ data:
     {{ .Values.remote_test_runner.config_file_contents }}
   init.sh: |
     #!/bin/sh
-
-    echo "Installing dependencies"
-    apk add build-base
     
     echo "Adding private Helm repos"
     helm repo add chainlink-qa https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
