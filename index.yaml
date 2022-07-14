@@ -272,6 +272,15 @@ entries:
   solana-validator:
   - apiVersion: v1
     appVersion: 1.16.0
+    created: "2022-07-14T10:03:10.650648763Z"
+    description: A Helm chart for Kubernetes
+    digest: d8a34adf908ba955307297e931e2d29684fb2e1f15a08599668287acb3401a3d
+    name: solana-validator
+    urls:
+    - solana-validator-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v1
+    appVersion: 1.16.0
     created: "2022-05-30T21:59:09.332213774Z"
     description: A Helm chart for Kubernetes
     digest: e62b9b03ae4bd81d6c9f4cdc4373305ceb9234a8b78dcabed775861c8dd3b6f8
@@ -279,4 +288,4 @@ entries:
     urls:
     - solana-validator-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-12T15:34:16.166388142Z"
+generated: "2022-07-14T10:03:10.650270857Z"
