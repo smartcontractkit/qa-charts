@@ -83,6 +83,17 @@ entries:
     urls:
     - geth-0.1.0.tgz
     version: 0.1.0
+  kafka-rest:
+  - apiVersion: v1
+    appVersion: 7.0.0
+    created: "2022-07-20T15:50:55.105217255Z"
+    description: A Helm chart for Kubernetes
+    digest: 8d0bc1a626439dce565c43f9b200ce533daa6d89deac41b15a4ce224399ff795
+    name: kafka-rest
+    type: application
+    urls:
+    - kafka-rest-0.1.0.tgz
+    version: 0.1.0
   localterra:
   - apiVersion: v1
     created: "2022-05-30T21:59:09.330562074Z"
@@ -187,6 +198,17 @@ entries:
     urls:
     - mockserver-config-5.11.2.tgz
     version: 5.11.2
+  prometheus:
+  - apiVersion: v1
+    appVersion: 1.16.0
+    created: "2022-07-20T15:50:55.106317798Z"
+    description: A Helm chart for Kubernetes
+    digest: 8873cad9c9167ff87f1f7a3e2506c4d7162be1d10b0faefb3df1dd30833f70ab
+    name: prometheus
+    type: application
+    urls:
+    - prometheus-0.1.0.tgz
+    version: 0.1.0
   remote-test-runner:
   - apiVersion: v1
     appVersion: 1.0.0
@@ -269,6 +291,17 @@ entries:
     urls:
     - remote-test-runner-0.1.0.tgz
     version: 0.1.0
+  schema-registry:
+  - apiVersion: v1
+    appVersion: 6.2.1
+    created: "2022-07-20T15:50:55.106976523Z"
+    description: A Helm chart for Kubernetes
+    digest: 257d31a6df7c89d36c0e90148d181d2fc3ad69971692bbb1f424f14210732614
+    name: schema-registry
+    type: application
+    urls:
+    - schema-registry-0.1.0.tgz
+    version: 0.1.0
   solana-validator:
   - apiVersion: v1
     appVersion: 1.16.0
@@ -288,4 +321,4 @@ entries:
     urls:
     - solana-validator-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-14T10:03:10.650270857Z"
+generated: "2022-07-20T15:50:55.10456443Z"
