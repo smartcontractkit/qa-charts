@@ -1,0 +1,30 @@
+replicaCount: 1
+
+image:
+  repository: "prom/prometheus"
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+service:
+  type: ClusterIP
+  port: 9090
+
+resources:
+  limits:
+    memory: "120M"
+    cpu: "10m"
+
+otpe_1:
+otpe_2:
+
+# job_name: atlas
+# target: localhost:9090       # atlasEvmExporterUrl
+# rule_file: atlas.rules.yml
+
+target:
