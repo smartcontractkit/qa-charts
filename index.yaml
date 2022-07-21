@@ -321,4 +321,16 @@ entries:
     urls:
     - solana-validator-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-20T15:50:55.10456443Z"
+  starknetdev:
+  - apiVersion: v1
+    created: "2022-07-21T11:37:10.315266235Z"
+    description: StarkNET Pathfined/devnet deployment
+    digest: db252a976d82323c795e05b129b89a77fc4864c3662cb1149c268489c50c6bad
+    keywords:
+    - starknet
+    - pathfinder
+    name: starknetdev
+    urls:
+    - starknetdev-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-07-21T11:37:10.31454764Z"
