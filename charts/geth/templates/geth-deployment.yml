@@ -73,7 +73,7 @@ spec:
           - '--http.corsdomain'
           - '*'
           - '--vmdebug'
-          - '--networkid=1337'
+          - '--networkid={{ .Values.geth.networkid }}'
           - '--rpc.txfeecap'
           - '0'
           - '--dev.period'

@@ -5,6 +5,8 @@ geth:
     image: ethereum/client-go
     version: stable
 
+  networkid: 1337
+
 resources:
   requests:
     cpu: 200m
