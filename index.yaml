@@ -3,6 +3,15 @@ entries:
   chainlink:
   - apiVersion: v1
     appVersion: 1.0.1
+    created: "2022-09-13T13:47:21.668735839Z"
+    description: A Helm chart for Kubernetes
+    digest: 6457cdf099da62f3608d9153e7af76fa656f04514c5aad3bf5bff03ee0441423
+    name: chainlink
+    urls:
+    - chainlink-0.0.9.tgz
+    version: 0.0.9
+  - apiVersion: v1
+    appVersion: 1.0.1
     created: "2022-07-25T17:58:42.695319105Z"
     description: A Helm chart for Kubernetes
     digest: 2dd77e90812280b23eee7c684ab85f94cdffc874a492ee14ed44fb652792c0a6
@@ -342,4 +351,4 @@ entries:
     urls:
     - starknetdev-0.1.0.tgz
     version: 0.1.0
-generated: "2022-07-25T17:58:42.694738694Z"
+generated: "2022-09-13T13:47:21.668102832Z"
