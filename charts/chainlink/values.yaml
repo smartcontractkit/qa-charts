@@ -22,6 +22,7 @@ db:
       cpu: 250m
       memory: 256Mi
 replicas: 1
+prometheus: false
 
 env:
   DATABASE_URL: postgresql://postgres:node@0.0.0.0/chainlink?sslmode=disable
