@@ -216,6 +216,17 @@ entries:
     urls:
     - mockserver-config-5.11.2.tgz
     version: 5.11.2
+  polygon-edge:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-09-18T18:37:02.429688531Z"
+    description: A Helm chart for Kubernetes
+    digest: 20d0696239cce1ba24549b598a28c232121701c3e6e0bf22e63a05f0b5ebe103
+    name: polygon-edge
+    type: application
+    urls:
+    - polygon-edge-0.1.0.tgz
+    version: 0.1.0
   prometheus:
   - apiVersion: v1
     appVersion: 1.16.0
@@ -351,4 +362,4 @@ entries:
     urls:
     - starknetdev-0.1.0.tgz
     version: 0.1.0
-generated: "2022-09-13T13:47:21.668102832Z"
+generated: "2022-09-18T18:37:02.428903582Z"
