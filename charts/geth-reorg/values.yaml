@@ -23,3 +23,11 @@ geth:
       secret: ''
   genesis:
     networkId: 1337
+
+podAnnotations: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

@@ -25,3 +25,9 @@ env:
   schema_registry_host_name: "cp-schema-registry"
   schema_registry_kafkastore_bootstrap_servers: "PLAINTEXT://kafka:9092"
   schema_registry_listeners: "http://0.0.0.0:8081"
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
