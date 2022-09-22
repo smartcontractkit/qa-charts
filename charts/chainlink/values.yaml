@@ -53,3 +53,10 @@ env:
   SESSION_TIMEOUT: '999h'
   KEEPER_TURN_FLAG_ENABLED: 'true'
 
+podAnnotations: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

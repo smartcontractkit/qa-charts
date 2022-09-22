@@ -27,3 +27,9 @@ env:
   kafka_rest_listeners: "http://0.0.0.0:8082"
   kafka_rest_client_security_protocol: "PLAINTEXT"
   kafka_rest_schema_registry_url: "http://cp-schema-registry:8081"
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
