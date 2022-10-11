@@ -1,0 +1,27 @@
+on:
+  push:
+    # branches:
+    #   - 'main'
+name: Build Remote Runner Image
+jobs:
+  build-image:
+    environment: integration
+    permissions:
+      id-token: write
+      contents: read
+    name: Build Remote Runner Image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+      - uses: smartcontractkit/tool-versions-to-env-action@v1.0.8
+        id: tool-versions
+      - name: Build Image
+        uses: ./.github/actions/build-images
+        env:
+          repo: public.ecr.aws/chainlink/qa-remote-test-runner
+        with:
+          chart_path: charts/remote-test-runner
+          build_args: HELM_VERSION=${{ steps.tool-versions.outputs.helm_version }}
+          push_tag: ${{ env.repo }}:latest,${{ env.repo }}:${{ github.sha }}
+          QA_AWS_ROLE_TO_ASSUME: ${{ secrets.QA_AWS_ROLE_TO_ASSUME }}

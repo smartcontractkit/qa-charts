@@ -4,10 +4,10 @@ image:
   repository: confluentinc/cp-schema-registry
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: ''
 
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: ''
+fullnameOverride: ''
 
 podAnnotations: {}
 
@@ -17,14 +17,14 @@ service:
 
 resources:
   limits:
-    memory: "500M"
-    cpu: "0.4"
+    memory: '500M'
+    cpu: '0.4'
 
 env:
-  schema_registry_debug: "true"
-  schema_registry_host_name: "cp-schema-registry"
-  schema_registry_kafkastore_bootstrap_servers: "PLAINTEXT://kafka:9092"
-  schema_registry_listeners: "http://0.0.0.0:8081"
+  schema_registry_debug: 'true'
+  schema_registry_host_name: 'cp-schema-registry'
+  schema_registry_kafkastore_bootstrap_servers: 'PLAINTEXT://kafka:9092'
+  schema_registry_listeners: 'http://0.0.0.0:8081'
 
 nodeSelector: {}
 

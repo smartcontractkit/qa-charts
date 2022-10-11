@@ -10,7 +10,7 @@ spec:
         name: remote-test-runner-cm
   containers:
     - name: remote-test-runner
-      image: f4hrenh9it/remote-test-runner:v1
+      image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
       command: ["sh", "/root/init.sh"]
       volumeMounts:
         - name : configmap-volume

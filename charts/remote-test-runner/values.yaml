@@ -1,12 +1,18 @@
 # These values are auto-generated and set by the calling integration framework
+image:
+  repository: public.ecr.aws/chainlink/qa-remote-test-runner
+  tag: 'latest'
+
 remote_test_runner:
   env_namespace: ''
-  test_name: '@soak-ocr'
+  focus: '@soak-ocr'
+  test_dir: './soak'
+  test_log_level: 'debug'
   slack_api: default
   slack_channel: default
   slack_user_id: default
-  test_file_size: 0
-  test_file: /root/remote.test
+  start_file: /root/start.txt
+  ginkgo_version: '2.2.0'
   access_port: 8080
 
 resources:
