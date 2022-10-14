@@ -13,7 +13,7 @@ data:
     set -x
 
     # Steps to use this
-    # 1. Push up a test repo or directory as src to /root/src
+    # 1. Push up a test repo as ztarrepo.tar.gz to /root/
     # 2. Push up or create an empty file at /root/start.txt
     # Once the start.txt file has been created the test will begin
 

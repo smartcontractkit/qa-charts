@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM golang:1.19-buster
 
 # Install node helm
 ARG HELM_VERSION="3.9.4"
@@ -12,11 +12,13 @@ RUN case `uname -m` in \
         s390x) ARCH=s390x; ;; \
         *) echo "un-supported arch, exit ..."; exit 1; ;; \
     esac && \
-    apk add --update --no-cache build-base wget git curl && \
+    apt-get update && apt-get install -y wget curl git gnupg && \
     wget ${BASE_URL}/helm-v${HELM_VERSION}-linux-${ARCH}.tar.gz -O - | tar -xz && \
     mv linux-${ARCH}/helm /usr/bin/helm && \
     chmod +x /usr/bin/helm && \
     rm -rf linux-${ARCH} && \
-    apk add --update nodejs npm
+    curl -sL https://deb.nodesource.com/setup_16.x  | bash - && \
+    apt-get update && apt-get install -y nodejs && \
+    apt-get clean all
 
 ENTRYPOINT /root/init.sh
