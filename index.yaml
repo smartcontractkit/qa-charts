@@ -3,6 +3,15 @@ entries:
   chainlink:
   - apiVersion: v1
     appVersion: 1.0.1
+    created: "2022-10-24T18:30:49.630757929Z"
+    description: A Helm chart for Kubernetes
+    digest: 7f1e2b101a2f7e3d80297a7d8425b518ecd049f2a2dcec912189cb2dfb049d2e
+    name: chainlink
+    urls:
+    - chainlink-0.0.11.tgz
+    version: 0.0.11
+  - apiVersion: v1
+    appVersion: 1.0.1
     created: "2022-09-22T11:24:53.069393385Z"
     description: A Helm chart for Kubernetes
     digest: b9375373fcc5129f0e489b1e03fbf63842b578749215bf1610338b5af075eaf0
@@ -84,6 +93,14 @@ entries:
     version: 0.0.2
   ethereum:
   - apiVersion: v1
+    created: "2022-10-24T18:30:49.631355239Z"
+    description: Geth private network for reorg tests
+    digest: 786413a542bde0d4c2d5127c98da9208cbfd4bad2a0ac0de7823be51a0ccc08d
+    name: ethereum
+    urls:
+    - ethereum-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v1
     created: "2022-09-22T11:24:53.070106792Z"
     description: Geth private network for reorg tests
     digest: d9066e92f439bacf05ffc8ab8e67c186396b70f89f9fdb16b8968aded8f8bc74
@@ -100,6 +117,15 @@ entries:
     - ethereum-0.0.1.tgz
     version: 0.0.1
   geth:
+  - apiVersion: v1
+    appVersion: 1.16.0
+    created: "2022-10-24T18:30:49.631754546Z"
+    description: A Helm chart for Kubernetes
+    digest: 23426ffb0bb2a3e665a56100828c8494c65fd381a0151be2f2e34fce014abc94
+    name: geth
+    urls:
+    - geth-0.1.3.tgz
+    version: 0.1.3
   - apiVersion: v1
     appVersion: 1.16.0
     created: "2022-09-22T11:24:53.070595697Z"
@@ -128,6 +154,16 @@ entries:
     - geth-0.1.0.tgz
     version: 0.1.0
   kafka-rest:
+  - apiVersion: v2
+    appVersion: 7.0.0
+    created: "2022-10-24T18:30:49.632078051Z"
+    description: A Helm chart for Kubernetes
+    digest: 8df98982ae4cf8792d7fb3ac36a931b51f759257474e1adf32bc75d7b0bb4341
+    name: kafka-rest
+    type: application
+    urls:
+    - kafka-rest-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v1
     appVersion: 7.0.0
     created: "2022-09-22T11:24:53.070997001Z"
@@ -265,6 +301,16 @@ entries:
   polygon-edge:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2022-10-24T18:30:49.63257486Z"
+    description: A Helm chart for Kubernetes
+    digest: 2dc3fc9eb49ddc4f534f9cf0f2ac46b95e052b79bb0969f2b63798502047c16a
+    name: polygon-edge
+    type: application
+    urls:
+    - polygon-edge-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2022-09-18T18:37:02.429688531Z"
     description: A Helm chart for Kubernetes
     digest: 20d0696239cce1ba24549b598a28c232121701c3e6e0bf22e63a05f0b5ebe103
@@ -285,6 +331,15 @@ entries:
     - prometheus-0.1.0.tgz
     version: 0.1.0
   remote-test-runner:
+  - apiVersion: v1
+    appVersion: 1.0.0
+    created: "2022-10-24T18:30:49.632923466Z"
+    description: A Helm chart to represent a long test runner in your K8s cluster
+    digest: fa9494851548d758f5b249e6221834914e6ca65576c831e4e18ea6fddaab8ed8
+    name: remote-test-runner
+    urls:
+    - remote-test-runner-0.2.2.tgz
+    version: 0.2.2
   - apiVersion: v1
     appVersion: 1.0.0
     created: "2022-09-22T11:24:53.072329015Z"
@@ -376,6 +431,16 @@ entries:
     - remote-test-runner-0.1.0.tgz
     version: 0.1.0
   schema-registry:
+  - apiVersion: v2
+    appVersion: 6.2.1
+    created: "2022-10-24T18:30:49.633228971Z"
+    description: A Helm chart for Kubernetes
+    digest: bbd51c9c6b0132cc40538be2039197149b042fe07dff21a97755d097f346f7cc
+    name: schema-registry
+    type: application
+    urls:
+    - schema-registry-0.1.2.tgz
+    version: 0.1.2
   - apiVersion: v1
     appVersion: 6.2.1
     created: "2022-09-22T11:24:53.072712019Z"
@@ -397,6 +462,15 @@ entries:
     - schema-registry-0.1.0.tgz
     version: 0.1.0
   solana-validator:
+  - apiVersion: v1
+    appVersion: 1.16.0
+    created: "2022-10-24T18:30:49.633479776Z"
+    description: A Helm chart for Kubernetes
+    digest: f7da9dfca127f9e4118f3f464c56faf8340be71b9af9e73402cf4aa474bffd6b
+    name: solana-validator
+    urls:
+    - solana-validator-0.1.3.tgz
+    version: 0.1.3
   - apiVersion: v1
     appVersion: 1.16.0
     created: "2022-09-22T11:24:53.073023022Z"
@@ -436,4 +510,4 @@ entries:
     urls:
     - starknetdev-0.1.0.tgz
     version: 0.1.0
-generated: "2022-09-22T11:24:53.068480376Z"
+generated: "2022-10-24T18:30:49.630098317Z"
