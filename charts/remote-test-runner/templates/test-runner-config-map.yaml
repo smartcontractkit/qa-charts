@@ -49,7 +49,7 @@ data:
     CGO_ENABLED=1 \
     ENV_NAMESPACE={{ .Values.remote_test_runner.env_namespace }} \
     ginkgo \
-    --timeout=0 \
+    --timeout={{ .Values.remote_test_runner.timeout }} \
     -v -r \
     --focus {{ .Values.remote_test_runner.focus }} \
     {{ .Values.remote_test_runner.test_dir }}
