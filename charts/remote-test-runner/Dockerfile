@@ -19,6 +19,7 @@ RUN case `uname -m` in \
     rm -rf linux-${ARCH} && \
     curl -sL https://deb.nodesource.com/setup_16.x  | bash - && \
     apt-get update && apt-get install -y nodejs && \
+    npm install -g yarn && \
     apt-get clean all
 
 ENTRYPOINT /root/init.sh
