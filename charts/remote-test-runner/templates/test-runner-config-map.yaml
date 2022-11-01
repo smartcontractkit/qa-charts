@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   labels:
     app: remote-test-runner-cm
-    release: {{ .Release.Name }}
+    release: { { .Release.Name } }
   name: remote-test-runner-cm
 data:
   test-env.json: |
@@ -19,7 +19,7 @@ data:
 
     TAR_FILE=/root/ztarrepo.tar.gz
     REPO_SRC=/root/src
-    
+
     echo "Adding private Helm repos"
     helm repo add chainlink-qa https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
 
@@ -49,7 +49,7 @@ data:
     CGO_ENABLED=1 \
     ENV_NAMESPACE={{ .Values.remote_test_runner.env_namespace }} \
     ginkgo \
-    --timeout=0 \
+    --ginkgo.timeout=0 \
     -v -r \
     --focus {{ .Values.remote_test_runner.focus }} \
     {{ .Values.remote_test_runner.test_dir }}
