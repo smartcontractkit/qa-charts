@@ -77,7 +77,7 @@ spec:
           - '--rpc.txfeecap'
           - '0'
           - '--dev.period'
-          - '1'
+          - '{{ .Values.geth.blocktime }}'
           - '--miner.threads'
           - '1'
           - '--miner.gasprice'
