@@ -6,6 +6,7 @@ geth:
     version: stable
 
   networkid: 1337
+  blocktime: 1
 
 resources:
   requests:
