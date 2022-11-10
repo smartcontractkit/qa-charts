@@ -54,9 +54,9 @@ spec:
             - name: POSTGRES_DB
               value: chainlink
             - name: POSTGRES_PASSWORD
-              value: node
+              value: verylongdatabasepassword
             - name: PGPASSWORD
-              value: node
+              value: verylongdatabasepassword
             - name: PGUSER
               value: postgres
           livenessProbe:

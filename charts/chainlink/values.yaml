@@ -1,7 +1,7 @@
 chainlink:
   image:
     image: public.ecr.aws/chainlink/chainlink
-    version: 1.6.0-nonroot
+    version: 1.9.0
   web_port: 6688
   p2p_port: 8090
   resources:
@@ -25,33 +25,8 @@ replicas: 1
 prometheus: false
 
 env:
-  DATABASE_URL: postgresql://postgres:node@0.0.0.0/chainlink?sslmode=disable
-  DATABASE_NAME: chainlink
-  ETH_URL: ws://geth:8546
-  ETH_CHAIN_ID: '1337'
-  ALLOW_ORIGINS: '*'
-  CHAINLINK_DEV: 'true'
-  FEATURE_EXTERNAL_INITIATORS: 'false'
-  CHAINLINK_PGPASSWORD: node
-  CHAINLINK_PORT: '6688'
-  CHAINLINK_TLS_PORT: '0'
-  FEATURE_OFFCHAIN_REPORTING: 'true'
-  JSON_CONSOLE: 'true'
-  LOG_LEVEL: debug
-  MINIMUM_CONTRACT_PAYMENT_LINK_JUELS: '0'
-  P2P_LISTEN_IP: 0.0.0.0
-  P2P_LISTEN_PORT: '6690'
-  ROOT: ./clroot
-  SECURE_COOKIES: 'false'
-  ETH_MAX_IN_FLIGHT_TRANSACTIONS: '16'
-  KEEPER_REGISTRY_SYNC_INTERVAL: '5s'
-  KEEPER_REGISTRY_PERFORM_GAS_OVERHEAD: '150000'
-  KEEPER_TURN_LOOK_BACK: '0'
-  EXPLORER_URL:
-  EXPLORER_ACCESS_KEY:
-  EXPLORER_SECRET:
-  SESSION_TIMEOUT: '999h'
-  KEEPER_TURN_FLAG_ENABLED: 'true'
+  CL_DEV: 'false'
+  CL_DATABASE_URL: postgresql://postgres:verylongdatabasepassword@0.0.0.0/chainlink?sslmode=disable
 
 podAnnotations: {}
 
