@@ -12,7 +12,7 @@ remote_test_runner:
   slack_channel: default
   slack_user_id: default
   start_file: /root/start.txt
-  ginkgo_version: '2.4.0'
+  ginkgo_version: '2.5.0'
   access_port: 8080
   timeout: 999h
 
