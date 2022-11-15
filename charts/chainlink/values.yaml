@@ -24,8 +24,10 @@ db:
 replicas: 1
 prometheus: false
 
+toml: ""
+
 env:
-  CL_DEV: 'false'
+  CL_DEV: "false"
   CL_DATABASE_URL: postgresql://postgres:verylongdatabasepassword@0.0.0.0/chainlink?sslmode=disable
 
 podAnnotations: {}
