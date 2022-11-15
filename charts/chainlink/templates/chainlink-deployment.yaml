@@ -105,6 +105,10 @@ spec:
           image: {{ .Values.chainlink.image.image }}:{{ .Values.chainlink.image.version }}
           imagePullPolicy: Always
           args:
+            - -c
+            - /etc/node-secrets-volume/default.toml
+            - -c
+            - /etc/node-secrets-volume/overrides.toml
             - node
             - start
             - -d
