@@ -17,6 +17,7 @@ data:
 
     [Log]
     JSONConsole = true
+    Level = 'debug'
 
     [WebServer]
     AllowOrigins = '*'
