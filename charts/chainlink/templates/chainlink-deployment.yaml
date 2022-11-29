@@ -104,19 +104,7 @@ spec:
         - name: node
           image: {{ .Values.chainlink.image.image }}:{{ .Values.chainlink.image.version }}
           imagePullPolicy: Always
-          args:
-            - -c
-            - /etc/node-secrets-volume/default.toml
-            - -c
-            - /etc/node-secrets-volume/overrides.toml
-            - node
-            - start
-            - -d
-            - -p
-            - /etc/node-secrets-volume/node-password
-            - -a
-            - /etc/node-secrets-volume/apicredentials
-            - --vrfpassword=/etc/node-secrets-volume/apicredentials
+          command: ["bash", "-c", "while ! pg_isready --host 0.0.0.0 --port 5432; do echo \"waiting for database to start\"; sleep 1; done && chainlink -c /etc/node-secrets-volume/default.toml -c /etc/node-secrets-volume/overrides.toml node start -d -p /etc/node-secrets-volume/node-password -a /etc/node-secrets-volume/apicredentials --vrfpassword=/etc/node-secrets-volume/apicredentials"]
           ports:
             - name: access
               containerPort: {{ .Values.chainlink.web_port }}
