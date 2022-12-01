@@ -68,7 +68,7 @@ data:
             "muirGlacierBlock": 0,
             "berlinBlock": 0,
             "londonBlock": 0,
-            "ethash": {}
+            "ethash": {},
             "clique": {
               "period": {{ .Values.geth.genesis.period }},
               "epoch": 30000
