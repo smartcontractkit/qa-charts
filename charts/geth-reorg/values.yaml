@@ -23,6 +23,7 @@ geth:
       secret: ''
   genesis:
     networkId: 1337
+    period: 1
 
 podAnnotations: {}
 

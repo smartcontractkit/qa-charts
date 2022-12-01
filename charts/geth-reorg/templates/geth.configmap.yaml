@@ -69,6 +69,10 @@ data:
             "berlinBlock": 0,
             "londonBlock": 0,
             "ethash": {}
+            "clique": {
+              "period": {{ .Values.geth.genesis.period }},
+              "epoch": 30000
+            }
         },
         "timestamp": "0x5e6ed790",
         "extraData": "0x0000000000000000000000000000000000000000000000000000000000000000",
