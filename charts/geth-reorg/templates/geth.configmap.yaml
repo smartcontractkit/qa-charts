@@ -69,7 +69,7 @@ data:
             "berlinBlock": 0,
             "londonBlock": 0,
             "ethash": {
-              "period": {{ .Values.geth.genesis.period }},
+              "period": {{ .Values.geth.genesis.period }}
             },
         },
         "timestamp": "0x5e6ed790",
