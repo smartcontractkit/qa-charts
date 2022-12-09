@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   labels:
     app: remote-test-runner-cm
-    release: {{ .Release.Name }}
+    release: {{.Release.Name}}
   name: remote-test-runner-cm
 data:
   test-env.json: |
@@ -19,12 +19,9 @@ data:
 
     TAR_FILE=/root/ztarrepo.tar.gz
     REPO_SRC=/root/src
-    
+
     echo "Adding private Helm repos"
     helm repo add chainlink-qa https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
-
-    echo "Installing ginkgo"
-    go install github.com/onsi/ginkgo/v2/ginkgo@v"{{ .Values.remote_test_runner.ginkgo_version }}"
 
     echo "Waiting for $START_FILE to start being copied"
     until [ -f $START_FILE ]
@@ -45,11 +42,13 @@ data:
 
     echo "Running test..."
     echo "Connecting to namespace {{ .Values.remote_test_runner.env_namespace }}"
-    cd "${REPO_SRC}/usr/src/" || echo "Failed to cd into ${REPO_SRC}/usr/src/ before running test"
+    cd "${REPO_SRC}/usr/src/integration-tests" || echo "Failed to cd into ${REPO_SRC}/usr/src/integration-tests before running test"
+    pwd
+    ls
     CGO_ENABLED=1 \
     ENV_NAMESPACE={{ .Values.remote_test_runner.env_namespace }} \
-    ginkgo \
+    go test \
     --timeout={{ .Values.remote_test_runner.timeout }} \
-    -v -r \
-    --focus {{ .Values.remote_test_runner.focus }} \
+    -v \
+    -run {{ .Values.remote_test_runner.test_name }} \
     {{ .Values.remote_test_runner.test_dir }}
