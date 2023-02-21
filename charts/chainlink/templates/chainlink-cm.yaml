@@ -26,6 +26,9 @@ data:
 
     [WebServer.TLS]
     HTTPSPort = 0
+
+    [EVM.GasEstimator]
+    LimitDefault = 3_500_000
   overrides.toml: |
 {{ indent 4 .Values.toml }}
   secrets.toml: |
