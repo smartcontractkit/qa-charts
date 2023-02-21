@@ -25,6 +25,7 @@ replicas: 1
 prometheus: false
 
 toml: ''
+secretsToml: ''
 
 env:
   CL_DEV: 'false'

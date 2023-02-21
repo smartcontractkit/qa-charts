@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: mercury-db-cm
+    release: mercury-db
+  name: mercury-db-cm
+data:
+  init.sql: |-
+    CREATE EXTENSION pg_stat_statements;
+    CREATE TABLE IF NOT EXISTS reports  (
+      id serial NOT NULL PRIMARY KEY,
+      feed_id bytea NOT NULL,
+      price numeric(58,0) NOT NULL,
+      full_report bytea NOT NULL,
+      blob bytea NOT NULL,
+      block_number bigint NOT NULL,
+      config_digest bytea NOT NULL,
+      epoch numeric(32) NOT NULL,
+      round int8 NOT NULL,
+      observations_timestamp bigint NOT NULL,
+      transmitting_operator bytea NOT NULL,
+      created_at timestamptz NOT NULL
+    );
+    CREATE INDEX IF NOT EXISTS idx_reports_feed_id_block_number ON reports (feed_id, block_number, created_at);
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_reports_block_number_config_digest_epoch_round ON reports (block_number, config_digest, epoch, round);

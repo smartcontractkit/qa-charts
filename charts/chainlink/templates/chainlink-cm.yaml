@@ -28,3 +28,5 @@ data:
     HTTPSPort = 0
   overrides.toml: |
 {{ indent 4 .Values.toml }}
+  secrets.toml: |
+{{ indent 4 .Values.secretsToml }}
