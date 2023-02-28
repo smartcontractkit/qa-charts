@@ -11,6 +11,9 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    - name: ws-rpc
+      port: {{ .Values.service.rpcPort }}
+      targetPort: ws-rpc
   selector:
     {{- include "mercury-server.selectorLabels" . | nindent 4 }}
     app: {{ include "mercury-server.fullname" . }}
