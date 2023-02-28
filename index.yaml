@@ -262,6 +262,16 @@ entries:
   mercury-server:
   - apiVersion: v2
     appVersion: sha-08ffa1d
+    created: "2023-02-28T22:13:59.739859957Z"
+    description: A Helm chart for Kubernetes
+    digest: c1a7374c3ecdd06a883e2577196ead293c5717171f5901aa1f5c6a5d2adeda1e
+    name: mercury-server
+    type: application
+    urls:
+    - mercury-server-0.3.4.tgz
+    version: 0.3.4
+  - apiVersion: v2
+    appVersion: sha-08ffa1d
     created: "2023-02-21T10:11:35.798504845Z"
     description: A Helm chart for Kubernetes
     digest: 24d3926571b62e8c38d813c5431970aad560d2d470e073347504607339043e17
@@ -620,4 +630,4 @@ entries:
     urls:
     - starknetdev-0.1.0.tgz
     version: 0.1.0
-generated: "2023-02-21T10:11:35.797295367Z"
+generated: "2023-02-28T22:13:59.738932899Z"
