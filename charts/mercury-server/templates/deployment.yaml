@@ -43,6 +43,9 @@ spec:
         - name: mercury-db-config-map
           configMap:
             name: mercury-db-cm
+        - name: mercury-server-config-map
+          configMap:
+            name: mercury-server-cm
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -51,23 +54,49 @@ spec:
           imagePullPolicy: {{ .Values.imagPullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.envVars.PORT }}
+              containerPort: {{ .Values.service.port }}
               protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /health
-              port: http
+            - name: ws-rpc
+              containerPort: {{ .Values.service.rpcPort }}
+          # TODO: Fix when /health fixed https://smartcontract-it.atlassian.net/browse/MERC-178    
+          # livenessProbe:
+          #   httpGet:
+          #     path: /health
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /health
+          #     port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          env:
+            - name: PORT
+              value: '3000'
+            - name: DATABASE_URL
+              value: 'postgresql://postgres:verylongdatabasepassword@localhost:5432/mercury?sslmode=disable'
+            - name: AUTH_CLIENT_USER
+              value: client
+            - name: AUTH_CLIENT_PASSWORD
+              value: clientpass
+            - name: AUTH_NODE_USER
+              value: node
+            - name: AUTH_NODE_PASSWORD
+              value: nodepass
+            - name: RPC_NODES_PUBLIC_KEYS_JSON_PATH
+              value: /etc/node-secrets-volume/rpcNodesConf.json
+            - name: RPC_PRIVATE_KEY
+              value: {{ .Values.rpcPrivateKey }}
+            - name: RPC_PORT
+              value: '1338'
+            - name: RPC_HEALTHZ_PORT
+              value: '1339'
           envFrom:
-            - configMapRef:
-                name: {{ include "mercury-server.fullname" . }}
             - secretRef:
                 name: {{ include "mercury-server.fullname" . }}
+          volumeMounts:
+            - mountPath: /etc/node-secrets-volume/rpcNodesConf.json
+              name: mercury-server-config-map
+              subPath: rpcNodesConf.json
         - name: mercury-db
           image: postgres:11.15
           command:

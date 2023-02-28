@@ -12,13 +12,9 @@ imagePullSecrets: []
 nameOverride: ''
 fullnameOverride: ''
 
-envVars:
-  PORT: '3000'
-  DATABASE_URL: 'postgresql://postgres:verylongdatabasepassword@localhost:5432/mercury?sslmode=disable'
-  AUTH_CLIENT_USER: client
-  AUTH_CLIENT_PASSWORD: clientpass
-  AUTH_NODE_USER: node
-  AUTH_NODE_PASSWORD: nodepass
+rpcNodesConf: ''
+rpcPrivateKey: ''
+
 envSecrets: {}
 
 db:
@@ -59,6 +55,7 @@ securityContext:
 service:
   type: NodePort
   port: 3000
+  rpcPort: '1338'
 
 ingress:
   enabled: false
