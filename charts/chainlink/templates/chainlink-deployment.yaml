@@ -67,6 +67,7 @@ spec:
                 - postgres
             initialDelaySeconds: 1
             periodSeconds: 5
+            timeoutSeconds: 10
           readinessProbe:
             exec:
               command:
@@ -75,6 +76,7 @@ spec:
                 - postgres
             initialDelaySeconds: 1
             periodSeconds: 5
+            timeoutSeconds: 10
           startupProbe:
             exec:
               command:
@@ -130,12 +132,14 @@ spec:
               port: {{ .Values.chainlink.web_port }}
             initialDelaySeconds: 1
             periodSeconds: 5
+            timeoutSeconds: 10
           readinessProbe:
             httpGet:
               path: /health
               port: {{ .Values.chainlink.web_port }}
             initialDelaySeconds: 1
             periodSeconds: 5
+            timeoutSeconds: 10
           startupProbe:
             httpGet:
               path: /
