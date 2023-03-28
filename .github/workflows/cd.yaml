@@ -58,7 +58,7 @@ jobs:
           #!/bin/bash
           # Note: This will break if file paths have spaces in them 
           package_dir="$GITHUB_WORKSPACE/gh-pages/packages"
-          mkdir -p package_dir
+          mkdir -p "${package_dir}"
 
           # Within the branch that has changed charts pushed to it
           # we package all of the changed charts into the gh-pages branch
