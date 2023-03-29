@@ -12,6 +12,9 @@ chainlink:
       cpu: 350m
       memory: 1024Mi
 db:
+  image:
+    image: postgres
+    version: 11.15.0
   stateful: true
   capacity: 1Gi
   resources:
