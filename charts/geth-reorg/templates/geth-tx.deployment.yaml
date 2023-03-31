@@ -36,9 +36,11 @@ spec:
                   key: networkid
           resources:
             requests:
-              cpu: "2"
+              memory: {{ .Values.geth.tx.resources.requests.memory }}
+              cpu: {{ .Values.geth.tx.resources.requests.cpu }}
             limits:
-              cpu: "3"
+              memory: {{ .Values.geth.tx.resources.limits.memory }}
+              cpu: {{ .Values.geth.tx.resources.limits.cpu }}
           ports:
             - name: http-rpc
               containerPort: 8544
