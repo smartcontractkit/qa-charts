@@ -17,10 +17,24 @@ geth:
     replicas: 1
     service:
       type: ClusterIP
+    resources:
+      requests:
+        cpu: 200m
+        memory: 528Mi
+      limits:
+        cpu: 200m
+        memory: 528Mi
   miner:
     replicas: 2
     account:
       secret: ''
+    resources:
+      requests:
+        cpu: 200m
+        memory: 528Mi
+      limits:
+        cpu: 200m
+        memory: 528Mi
   genesis:
     networkId: 1337
 

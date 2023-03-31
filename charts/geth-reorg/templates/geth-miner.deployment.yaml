@@ -36,9 +36,11 @@ spec:
                   key: networkid
           resources:
             requests:
-              cpu: "2"
+              memory: {{ .Values.geth.miner.resources.requests.memory }}
+              cpu: {{ .Values.geth.miner.resources.requests.cpu }}
             limits:
-              cpu: "3"
+              memory: {{ .Values.geth.miner.resources.limits.memory }}
+              cpu: {{ .Values.geth.miner.resources.limits.cpu }}
           ports:
             - name: http-rpc-miner
               containerPort: 9544
