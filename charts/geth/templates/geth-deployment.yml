@@ -13,6 +13,10 @@ spec:
       labels:
         app: geth
         release: {{ .Release.Name }}
+      annotations:
+        {{- range $key, $value := .Values.podAnnotations }}
+        {{ $key }}: {{ $value | quote }}
+        {{- end }}
     spec:
       volumes:
       - name: configmap-volume

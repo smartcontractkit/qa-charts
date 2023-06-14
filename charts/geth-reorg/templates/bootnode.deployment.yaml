@@ -18,6 +18,10 @@ spec:
       labels:
         app: {{ template "ethereum.name" . }}-bootnode
         release: {{ .Release.Name }}
+      annotations:
+        {{- range $key, $value := .Values.podAnnotations }}
+        {{ $key }}: {{ $value | quote }}
+        {{- end }}
     spec:
       containers:
         - name: bootnode

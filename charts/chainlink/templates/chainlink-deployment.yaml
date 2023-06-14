@@ -35,6 +35,9 @@ spec:
         {{- end }}
       annotations:
         prometheus.io/scrape: 'true'
+        {{- range $key, $value := .Values.podAnnotations }}
+        {{ $key }}: {{ $value | quote }}
+        {{- end }}
     spec:
       volumes:
         - name: {{ .Release.Name }}-config-map

@@ -19,6 +19,10 @@ spec:
         app: {{ template "ethereum.fullname" . }}-geth
         release: {{ .Release.Name }}
         tx: "0"
+      annotations:
+        {{- range $key, $value := .Values.podAnnotations }}
+        {{ $key }}: {{ $value | quote }}
+        {{- end }}
     spec:
       containers:
         - name: geth
