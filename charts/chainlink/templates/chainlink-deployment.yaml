@@ -68,7 +68,7 @@ spec:
           lifecycle:
             preStop:
               exec:
-                command: [ "/bin/sh", "-c", "while $(psql -d chainlink -c \"SELECT COUNT(*) FROM pg_stat_activity WHERE datname = 'chainlink' AND state = 'active';\" -tA ); echo \"waiting for connection to become 0\"; sleep 10; fi; done" ]
+                command: [ "/bin/sh", "-c", "while [ $(psql -d chainlink -c \"SELECT COUNT(*) FROM pg_stat_activity WHERE datname = 'chainlink' AND state = 'active';\" -tA ) -ne 0 ]; do echo \"waiting for connection to become 0\"; sleep 10; done" ]
           livenessProbe:
             exec:
               command:
