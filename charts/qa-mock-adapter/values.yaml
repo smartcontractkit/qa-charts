@@ -11,7 +11,7 @@ app:
       memory: 256Mi
 
 image:
-  repository: 795953128386.dkr.ecr.us-west-2.amazonaws.com
+  repository: qa-mock-adapter
   snapshot: false
   pullPolicy: IfNotPresent
 
