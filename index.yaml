@@ -529,6 +529,16 @@ entries:
     urls:
     - prometheus-0.1.0.tgz
     version: 0.1.0
+  qa-mock-adapter:
+  - apiVersion: v1
+    appVersion: 5.11.1
+    created: "2023-07-27T15:04:40.286851471Z"
+    description: QA mock adapter
+    digest: d868682bafde2f84ab00f41959dcff52826d2874916ad569df974b02ae5075fa
+    name: qa-mock-adapter
+    urls:
+    - qa-mock-adapter-1.0.0.tgz
+    version: 1.0.0
   remote-test-runner:
   - apiVersion: v1
     appVersion: 1.0.0
@@ -763,4 +773,4 @@ entries:
     urls:
     - starknetdev-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-13T22:04:04.18644549Z"
+generated: "2023-07-27T15:04:40.286130359Z"
