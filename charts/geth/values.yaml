@@ -7,6 +7,7 @@ geth:
 
   networkid: 1337
   blocktime: 1
+  capacity: 1Gi
 
 resources:
   requests:

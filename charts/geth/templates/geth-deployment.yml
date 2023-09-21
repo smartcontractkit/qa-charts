@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: geth
 spec:
@@ -17,6 +17,15 @@ spec:
         {{- range $key, $value := .Values.podAnnotations }}
         {{ $key }}: {{ $value | quote }}
         {{- end }}
+    volumeClaimTemplates:
+    - metadata:
+        name: geth
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: {{ .Values.capacity }}
     spec:
       volumes:
       - name: configmap-volume
@@ -26,7 +35,9 @@ spec:
       - name: geth-network
         image: "{{ .Values.geth.image.image }}:{{ .Values.geth.image.version }}"
         command: [ "sh", "./root/init.sh" ]
-        volumeMounts:
+        volumeMounts: 
+        - name: geth
+          mountPath: /root/.ethereum/devchain/
         - name : configmap-volume
           mountPath: /root/init.sh
           subPath: init.sh
