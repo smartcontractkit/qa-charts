@@ -3,6 +3,15 @@ kind: StatefulSet
 metadata:
   name: geth
 spec:
+  volumeClaimTemplates:
+  - metadata:
+      name: geth
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: {{ .Values.capacity }}
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
@@ -17,16 +26,8 @@ spec:
         {{- range $key, $value := .Values.podAnnotations }}
         {{ $key }}: {{ $value | quote }}
         {{- end }}
-    volumeClaimTemplates:
-    - metadata:
-        name: geth
-      spec:
-        accessModes:
-        - ReadWriteOnce
-        resources:
-          requests:
-            storage: {{ .Values.capacity }}
     spec:
+      restartPolicy: Always
       volumes:
       - name: configmap-volume
         configMap:
