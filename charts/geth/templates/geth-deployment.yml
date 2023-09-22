@@ -1,4 +1,3 @@
-# Error from server (BadRequest): error when creating \"tmp-manifest-47563bd7-b514-47bd-adda-a569ff63e30c.yaml\": StatefulSet in version \"v1\" cannot be handled as a StatefulSet: strict decoding error: unknown field \"spec.template.volumeClaimTemplates\"
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
