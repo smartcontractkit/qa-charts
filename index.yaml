@@ -270,9 +270,9 @@ entries:
   geth:
   - apiVersion: v1
     appVersion: 1.13.1
-    created: "2023-09-23T16:33:40.666537731Z"
-    description: A Helm chart for Kubernetes
-    digest: 0627617a9d50c84041794464910b8d3338333e2ddb7cf96aa9149fea7ba7b3fa
+    created: "2023-09-23T18:04:32.891756076Z"
+    description: A simulated go-ethereum network
+    digest: f3436ad87fd811fd34cccb9e220ca4b2042af6c68361453dd732e61c2151ae1a
     name: geth
     urls:
     - geth-0.2.2.tgz
@@ -800,4 +800,4 @@ entries:
     urls:
     - starknetdev-0.1.0.tgz
     version: 0.1.0
-generated: "2023-09-23T16:33:40.665921125Z"
+generated: "2023-09-23T18:04:32.891161471Z"
