@@ -1,10 +1,11 @@
+{{- range $cfg := .Values.nodes }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   labels:
-    app: {{ .Release.Name }}-cm
-    release: {{ .Release.Name }}
-  name: {{ .Release.Name }}-cm
+    app: {{ $.Release.Name }}-{{ $cfg.name }}-cm
+    release: {{ $.Release.Name }}
+  name: {{ $.Release.Name }}-{{ $cfg.name }}-cm
 data:
   apicredentials: |
     notreal@fakeemail.ch
@@ -27,6 +28,8 @@ data:
     [WebServer.TLS]
     HTTPSPort = 0
   overrides.toml: |
-{{ indent 4 .Values.toml }}
+{{ indent 4 $.Values.toml }}
   secrets.toml: |
-{{ indent 4 .Values.secretsToml }}
+{{ indent 4 $.Values.secretsToml }}
+---
+{{- end }}
