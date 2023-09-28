@@ -3,7 +3,7 @@ chainlink:
     image: public.ecr.aws/chainlink/chainlink
     version: 1.9.0
   web_port: 6688
-  p2p_port: 8090
+  p2p_port: 6690
   resources:
     requests:
       cpu: 350m
@@ -33,8 +33,8 @@ nodes:
   - name: node-1
 prometheus: false
 
-toml: ''
-secretsToml: ''
+toml: ""
+secretsToml: ""
 
 env:
   CL_DEV: 'false'
