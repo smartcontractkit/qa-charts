@@ -3,15 +3,15 @@ kind: Deployment
 metadata:
   name: geth
 spec:
-  # volumeClaimTemplates:
-  # - metadata:
-  #     name: geth
-  #   spec:
-  #     accessModes:
-  #     - ReadWriteOnce
-  #     resources:
-  #       requests:
-  #         storage: {{ .Values.geth.capacity }}
+  volumeClaimTemplates:
+  - metadata:
+      name: geth
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: {{ .Values.geth.capacity }}
   replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
@@ -27,7 +27,7 @@ spec:
         {{ $key }}: {{ $value | quote }}
         {{- end }}
     spec:
-      # restartPolicy: Always
+      restartPolicy: Always
       volumes:
       - name: configmap-volume
         configMap:
@@ -37,8 +37,8 @@ spec:
         image: "{{ .Values.geth.image.image }}:{{ .Values.geth.image.version }}"
         command: [ "sh", "./root/init.sh" ]
         volumeMounts: 
-        # - name: geth
-        #   mountPath: /root/.ethereum/devchain/
+        - name: geth
+          mountPath: /root/.ethereum/devchain/
         - name : configmap-volume
           mountPath: /root/init.sh
           subPath: init.sh
