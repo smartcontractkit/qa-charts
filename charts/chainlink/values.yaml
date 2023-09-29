@@ -24,15 +24,20 @@ db:
     limits:
       cpu: 250m
       memory: 256Mi
+  postgresUser: postgres
+  postgresPassword: verylongdatabasepassword
+  postgresDatabase: chainlink
+
 replicas: 1
+nodes:
+  - name: node-1
 prometheus: false
 
 toml: ""
 secretsToml: ""
 
 env:
-  CL_DEV: "false"
-  CL_DATABASE_URL: postgresql://postgres:verylongdatabasepassword@0.0.0.0/chainlink?sslmode=disable
+  CL_DEV: 'false'
 
 podAnnotations: {}
 
