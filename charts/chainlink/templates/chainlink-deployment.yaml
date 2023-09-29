@@ -1,6 +1,10 @@
 {{- range $cfg := .Values.nodes }}
 apiVersion: apps/v1
+{{ if $.Values.db.stateful }}
+kind: StatefulSet
+{{ else }}
 kind: Deployment
+{{ end }}
 metadata:
   name: {{ $.Release.Name }}-{{ $cfg.name }}
 spec:
