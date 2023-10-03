@@ -52,7 +52,7 @@ spec:
               exit 1;
           env:
             - name: POSTGRES_HOST
-              value: {{ $.Release.Name }}-postgres-{{ $cfg.name }}-service.{{ $.Release.Namespace }}.svc.cluster.local
+              value: {{ $.Release.Name }}-postgres-{{ $cfg.name }}.{{ $.Release.Namespace }}.svc.cluster.local
             - name: POSTGRES_PORT
               value: "5432"
       containers:
@@ -67,7 +67,7 @@ spec:
               containerPort: {{ $.Values.chainlink.p2p_port }}
           env:
             - name: CL_DATABASE_URL
-              value: postgresql://{{ $.Values.db.postgresUser }}:{{ $.Values.db.postgresPassword }}@{{ $.Release.Name }}-postgres-{{ $cfg.name }}-service.{{ $.Release.Namespace }}.svc.cluster.local:5432/{{ $.Values.db.postgresDatabase }}?sslmode=disable
+              value: postgresql://{{ $.Values.db.postgresUser }}:{{ $.Values.db.postgresPassword }}@{{ $.Release.Name }}-postgres-{{ $cfg.name }}.{{ $.Release.Namespace }}.svc.cluster.local:5432/{{ $.Values.db.postgresDatabase }}?sslmode=disable
           {{- range $key, $value := $.Values.env }}
             {{- if $value }}
             - name: {{ $key | upper}}
