@@ -1,7 +1,7 @@
 chainlink:
   image:
     image: public.ecr.aws/chainlink/chainlink
-    version: 1.9.0
+    version: 2.5.0
   web_port: 6688
   p2p_port: 6690
   resources:
@@ -37,7 +37,7 @@ toml: ""
 secretsToml: ""
 
 env:
-  CL_DEV: 'false'
+  CL_DEV: "false"
 
 podAnnotations: {}
 
