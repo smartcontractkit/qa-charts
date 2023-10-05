@@ -3,6 +3,15 @@ entries:
   chainlink:
   - apiVersion: v1
     appVersion: 2.5.0
+    created: "2023-10-05T20:42:53.492587614Z"
+    description: A Helm chart for Kubernetes
+    digest: 680b4835cbcd2ade7ce69d051f5af5f5d397dd9c29689492b49009e65d0bf34b
+    name: chainlink
+    urls:
+    - chainlink-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v1
+    appVersion: 2.5.0
     created: "2023-10-04T21:06:55.004060009Z"
     description: A Helm chart for Kubernetes
     digest: 0d3eb1c532acbc5bd6810df3e06d148e78699f2317fdbcbc86431e5cc6a9d84b
@@ -295,6 +304,15 @@ entries:
     - ethereum-0.0.1.tgz
     version: 0.0.1
   geth:
+  - apiVersion: v1
+    appVersion: 1.10.25
+    created: "2023-10-05T20:42:53.493012525Z"
+    description: A simulated go-ethereum network
+    digest: 3badc24c3e86bdc976301c27a857779e728672cf82065ba4b45a032a1cef97c6
+    name: geth
+    urls:
+    - geth-0.3.2.tgz
+    version: 0.3.2
   - apiVersion: v1
     appVersion: 1.10.25
     created: "2023-09-29T18:47:10.313743522Z"
@@ -854,4 +872,4 @@ entries:
     urls:
     - starknetdev-0.1.0.tgz
     version: 0.1.0
-generated: "2023-10-04T21:06:55.003416503Z"
+generated: "2023-10-05T20:42:53.491948598Z"
