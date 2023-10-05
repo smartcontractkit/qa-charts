@@ -3,6 +3,7 @@ kind: StatefulSet
 metadata:
   name: geth
 spec:
+  serviceName: {{ .Release.Name }}
   volumeClaimTemplates:
   - metadata:
       name: geth
