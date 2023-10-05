@@ -9,7 +9,7 @@ metadata:
   name: {{ $.Release.Name }}-postgres-{{ $cfg.name }}
 spec:
 {{ if $.Values.db.stateful }}
-  serviceName: {{ $.Release.Name }}-postgres-{{ $cfg.name }}-service
+  serviceName: {{ $.Release.Name }}-postgres-{{ $cfg.name }}
   podManagementPolicy: Parallel
   volumeClaimTemplates:
     - metadata:
