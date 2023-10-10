@@ -48,7 +48,12 @@ spec:
           command:
             - docker-entrypoint.sh
           args:
-            - {{ $.Values.db.additionalArgs}}
+          {{- range $arg := $.Values.db.pgArgs}}
+           - {{ $arg }}
+           {{- end }}
+           {{- range $arg := $.Values.db.additionalArgs}}
+           - {{ $arg }}
+           {{- end }}
           ports:
             - name: postgres
               containerPort: 5432
