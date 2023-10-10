@@ -48,10 +48,7 @@ spec:
           command:
             - docker-entrypoint.sh
           args:
-            - "-c"
-            - "shared_preload_libraries=pg_stat_statements"
-            - "-c"
-            - "pg_stat_statements.track=all"
+            - {{ $.Values.db.additionalArgs}}
           ports:
             - name: postgres
               containerPort: 5432
