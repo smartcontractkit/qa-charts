@@ -27,7 +27,7 @@ db:
   postgresUser: postgres
   postgresPassword: verylongdatabasepassword
   postgresDatabase: chainlink
-  additionalArgs: [ "-c","shared_preload_libraries=pg_stat_statements","-c","pg_stat_statements.track=all"]
+  additionalArgs: "[\"-c\",\"shared_preload_libraries=pg_stat_statements\", \"-c\", \"pg_stat_statements.track=all\"]"
 
 replicas: 1
 nodes:
