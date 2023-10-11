@@ -43,6 +43,17 @@ db:
 replicas: 1
 nodes:
   - name: node-1
+    chainlink:
+      image:
+        image: ''
+        version: ''
+    toml: ""
+    secretsToml: ""
+    db:
+      image:
+        image: postgres
+        version: 13.12
+
 prometheus: false
 
 toml: ""

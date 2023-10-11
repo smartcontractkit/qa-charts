@@ -44,7 +44,7 @@ spec:
             name: {{ $.Release.Name }}-{{ $cfg.name }}-cm
       containers:
         - name: chainlink-db
-          image: {{ $.Values.db.image.image }}:{{ $.Values.db.image.version }}
+          image: {{ $cfg.db.image.image | default $.Values.db.image.image }}:{{ $cfg.db.image.version | default $.Values.db.image.version}}
           command:
             - docker-entrypoint.sh
           args:
