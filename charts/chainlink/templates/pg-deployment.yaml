@@ -44,15 +44,27 @@ spec:
             name: {{ $.Release.Name }}-{{ $cfg.name }}-cm
       containers:
         - name: chainlink-db
-          image: {{ $.Values.db.image.image }}:{{ $.Values.db.image.version }}
+          {{- $image := $.Values.db.image.image }}
+          {{- $tag := $.Values.db.image.version }}
+          {{- if $cfg.db }}
+             {{- if $cfg.db.image }}
+                 {{- if $cfg.db.image.image }}
+                    {{ $image = $cfg.db.image.image }}
+                 {{- end }}
+                 {{- if $cfg.db.image.version }}
+                    {{ $tag = $cfg.db.image.version }}
+                 {{- end }}
+             {{- end }}
+          {{- end }}
+          image: {{ $image }}:{{ $tag }}
           command:
             - docker-entrypoint.sh
           args:
           {{- range $arg := $.Values.db.pgArgs}}
-           - {{ $arg }}
+            - {{ $arg }}
            {{- end }}
            {{- range $arg := $.Values.db.additionalArgs}}
-           - {{ $arg }}
+            - {{ $arg }}
            {{- end }}
           ports:
             - name: postgres
@@ -61,7 +73,7 @@ spec:
             - name: POSTGRES_DB
               value: {{ $.Values.db.postgresDatabase }}
             - name: POSTGRES_PASSWORD
-              value:  {{ $.Values.db.postgresPassword }}
+              value: {{ $.Values.db.postgresPassword }}
             - name: PGPASSWORD
               value: {{ $.Values.db.postgresPassword }}
             - name: PGUSER

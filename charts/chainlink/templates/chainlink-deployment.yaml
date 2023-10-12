@@ -34,7 +34,19 @@ spec:
             name: {{ $.Release.Name }}-{{ $cfg.name }}-cm
       containers:
         - name: node
-          image: {{ $.Values.chainlink.image.image }}:{{ $.Values.chainlink.image.version }}
+          {{- $image := $.Values.chainlink.image.image }}
+          {{- $tag := $.Values.chainlink.image.version }}
+          {{- if $cfg.chainlink }}
+            {{- if $cfg.chainlink.image }}
+                {{- if $cfg.chainlink.image.image }}
+                    {{ $image = $cfg.chainlink.image.image }}
+                {{- end }}
+                {{- if $cfg.chainlink.image.version }}
+                    {{ $tag = $cfg.chainlink.image.version }}
+                {{- end }}
+            {{- end }}
+          {{- end }}
+          image: {{ $image }}:{{ $tag }}
           imagePullPolicy: IfNotPresent
           command: [ "/bin/bash" ]
           args:

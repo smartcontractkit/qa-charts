@@ -43,6 +43,11 @@ db:
 replicas: 1
 nodes:
   - name: node-1
+    db:
+      image:
+        image: postgres
+        version: 13.12
+
 prometheus: false
 
 toml: ""

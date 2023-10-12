@@ -28,8 +28,16 @@ data:
     [WebServer.TLS]
     HTTPSPort = 0
   overrides.toml: |
-{{ indent 4 $.Values.toml }}
+    {{- $toml := $.Values.toml }}
+    {{- if $cfg.toml }}
+        {{- $toml = $cfg.toml }}
+    {{- end }}
+{{ indent 4 $toml }}
   secrets.toml: |
-{{ indent 4 $.Values.secretsToml }}
+  {{- $secrets := $.Values.secretsToml }}
+  {{- if $cfg.secretsToml }}
+        {{- $secrets = $cfg.secretsToml }}
+  {{- end }}
+{{ indent 4 $secrets }}
 ---
 {{- end }}
