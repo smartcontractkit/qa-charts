@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - 'main'
+      - "main"
   workflow_dispatch:
   schedule:
     - cron: "0 */1 * * *" # Runs every hour
@@ -29,56 +29,63 @@ jobs:
         with:
           version: v3.13.1
 
-      - name: Get changed files
-        id: get-changed-files
-        uses: jitterbit/get-changed-files@b17fbb00bdc0c0f63fcf166580804b4d2cdc2a42 # v1
-        with:
-          format: json
-
-      - name: Get changed charts
-        id: changed-charts
-        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410 # v6.4.1
-        env:
-          ADDED_MODIFIED_FILES: ${{ steps.get-changed-files.outputs.added_modified }}
-          RENAMED_FILES: ${{ steps.get-changed-files.outputs.renamed }}
-        with:
-          result-encoding: string
-          script: |
-            // Clump together rename/added/changed into one var
-            const changedFiles = JSON.parse(process.env.ADDED_MODIFIED_FILES || '[]').concat(JSON.parse(process.env.RENAMED_FILES || '[]'))
-            console.log('Changed files:', changedFiles)
-            // We can filter by only Chart.yaml since our CI enforces that changed charts
-            // have their version bumped
-            const changedCharts = changedFiles.filter(f => f.includes('Chart.yaml'))
-            console.log('Changed charts:', changedCharts)
-            return changedCharts.join(' ')
+      - name: "Setup yq"
+        uses: dcarbone/install-yq-action@64b1b9eb28920bb1a4c13c05321df284f9a8f940 # v1.1.1
 
       - name: Create packages and repo index
         shell: bash
         env:
           GITHUB_WORKSPACE: ${{ github.workspace }}
-          CHANGED_CHARTS: ${{ steps.changed-charts.outputs.result }}
         run: |
           #!/bin/bash
-          # Note: This will break if file paths have spaces in them 
-          package_dir="$GITHUB_WORKSPACE/gh-pages/packages"
-          mkdir -p "${package_dir}"
+          charts_dir="$GITHUB_WORKSPACE/main/charts"
+          package_dir="$GITHUB_WORKSPACE/gh-pages"
 
-          # Within the branch that has changed charts pushed to it
-          # we package all of the changed charts into the gh-pages branch
-          # to be published internally
-          cd "$GITHUB_WORKSPACE/main"
-          for changed_chart_path in $CHANGED_CHARTS
-          do
-            echo "Packaging $(dirname $changed_chart_path) to $package_dir...."
-            helm package -d "$package_dir" $(dirname $changed_chart_path)
+          # Fetch list of currently packaged charts from gh-pages branch
+          pushd "${package_dir}"
+          packaged_charts=($(ls *.tgz))
+          popd
+          echo "packaged charts ${packaged_charts[@]}"
+
+          # Loop over each chart in the charts directory to build a list of
+          # charts that have changed
+          changed_charts=()
+          for chart_dir in "${charts_dir}"/*; do
+            if [ -d "${chart_dir}" ]; then
+              # Extract the chart name and version from Chart.yaml
+              chart_name=$(yq e '.name' "${chart_dir}/Chart.yaml")
+              current_version=$(yq e '.version' "${chart_dir}/Chart.yaml")
+
+              # Build the expected packaged chart filename
+              expected_package_name="${chart_name}-${current_version}.tgz"
+
+              # Check if the expected package file exists in the packaged charts
+              if ! [[ -f "${package_dir}/${expected_package_name}" ]]; then
+                echo "Packaging ${chart_name}, version ${current_version} as it does not exist."
+                changed_charts+=("${chart_dir}")
+              else
+                echo "Package ${expected_package_name} already exists, no need to re-package."
+              fi
+            fi
           done
 
-          cd "$GITHUB_WORKSPACE/gh-pages"
-          if [ -n "$CHANGED_CHARTS" ]; then  
+          # Now package the changed charts
+          tmp_package_dir="${package_dir}/packages"
+          mkdir -p "${tmp_package_dir}"
+          for changed_chart_path in "${changed_charts[@]}"; do
+            echo "Packaging ${changed_chart_path}..."
+            helm package "${changed_chart_path}" --destination "${tmp_package_dir}"
+          done
+
+          # After packaging the changed charts, you should be in the package_dir
+          cd "$package_dir"
+
+          # Now, move the new chart packages to the helm directory and re-index
+          # if [ -n "$CHANGED_CHARTS" ]; then
+          if [ "${#changed_charts[@]}" -ne 0 ]; then
             if [ -f index.yaml ]; then
               echo "Charts have changed re-indexing..."
-              
+
               # The fancy mv's are so that we preserve the creation
               # timestamps of packages that have not been modified by
               # this commit. See https://github.com/helm/helm/issues/7363
