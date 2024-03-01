@@ -289,6 +289,15 @@ entries:
     urls:
     - eth2-0.0.1.tgz
     version: 0.0.1
+  eth2-common:
+  - apiVersion: v1
+    created: "2024-03-01T22:48:13.675763821Z"
+    description: Elements shared by different eth2 clients
+    digest: 13e9c186b95ffae33dc0cc86e2b8bd563ec90ae8c4d3c5c36151cc044c251b1b
+    name: eth2-common
+    urls:
+    - eth2-common-0.5.0.tgz
+    version: 0.5.0
   ethereum:
   - apiVersion: v1
     created: "2023-06-14T18:48:29.122984175Z"
@@ -919,4 +928,4 @@ entries:
     urls:
     - starknetdev-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-01T14:45:53.625169549Z"
+generated: "2024-03-01T22:48:13.675246852Z"
