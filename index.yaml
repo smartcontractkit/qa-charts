@@ -2,6 +2,18 @@ apiVersion: v1
 entries:
   besu-prysm:
   - apiVersion: v2
+    created: "2024-03-04T14:46:43.125322585Z"
+    dependencies:
+    - name: eth2-common
+      repository: https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
+      version: 0.5.0
+    description: Eth2 private network with Besu and Prysm
+    digest: aa5ab7dcfef8a6cc8062ab2a9cd3d51de9bbd31cd416d4542d20259515776c7e
+    name: besu-prysm
+    urls:
+    - besu-prysm-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v2
     created: "2024-03-02T14:36:12.849081209Z"
     dependencies:
     - name: eth2-common
@@ -304,6 +316,14 @@ entries:
     version: 0.0.1
   eth2-common:
   - apiVersion: v1
+    created: "2024-03-04T14:46:43.125705857Z"
+    description: Elements shared by different eth2 clients
+    digest: 33f0feeaa9c9e8bda93238a37b940e2ee11f643ab3a43a2ac2085d2358ab63e6
+    name: eth2-common
+    urls:
+    - eth2-common-0.5.1.tgz
+    version: 0.5.1
+  - apiVersion: v1
     created: "2024-03-01T22:48:13.675763821Z"
     description: Elements shared by different eth2 clients
     digest: 13e9c186b95ffae33dc0cc86e2b8bd563ec90ae8c4d3c5c36151cc044c251b1b
@@ -520,6 +540,15 @@ entries:
   geth-non-root:
   - apiVersion: v1
     appVersion: 1.12.0
+    created: "2024-03-04T14:46:43.126151204Z"
+    description: A simulated go-ethereum network
+    digest: 2ac97ab68d7c51dbd3557d5a7fdba84319af984612685542faf2364062fac1d1
+    name: geth-non-root
+    urls:
+    - geth-non-root-0.4.1.tgz
+    version: 0.4.1
+  - apiVersion: v1
+    appVersion: 1.12.0
     created: "2024-03-02T15:10:44.228580095Z"
     description: A simulated go-ethereum network
     digest: a99569c10ee6611e0c0311536f9c230dd40c9d650ad186e46bc88e83c21b2bd5
@@ -528,6 +557,18 @@ entries:
     - geth-non-root-0.4.0.tgz
     version: 0.4.0
   geth-prysm:
+  - apiVersion: v2
+    created: "2024-03-04T14:46:43.12697871Z"
+    dependencies:
+    - name: eth2-common
+      repository: https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
+      version: 0.5.0
+    description: Eth2 private network with Geth and Prysm
+    digest: ebed3ac934e9c507535ed37692504c762a5d37ba7dad064cf0bce4a9e72d57ba
+    name: geth-prysm
+    urls:
+    - geth-prysm-0.2.1.tgz
+    version: 0.2.1
   - apiVersion: v2
     created: "2024-03-02T14:36:12.8502027Z"
     dependencies:
@@ -982,4 +1023,4 @@ entries:
     urls:
     - starknetdev-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-02T15:10:44.227697726Z"
+generated: "2024-03-04T14:46:43.124313662Z"
