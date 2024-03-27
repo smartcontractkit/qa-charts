@@ -1082,4 +1082,14 @@ entries:
     urls:
     - starknetdev-0.1.0.tgz
     version: 0.1.0
-generated: "2024-03-26T14:23:55.569473738Z"
+  wiremock:
+  - apiVersion: v1
+    appVersion: 3.4.0
+    created: "2024-03-27T15:01:22.345719111Z"
+    description: A Helm chart for Kubernetes
+    digest: a058c3b551f5e6f18420fbef755a39a63c1feaa28da9e88a5e09f5ed0874349b
+    name: wiremock
+    urls:
+    - wiremock-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-03-27T15:01:22.345283088Z"
