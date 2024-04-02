@@ -40,6 +40,15 @@ entries:
   chainlink:
   - apiVersion: v1
     appVersion: 2.5.0
+    created: "2024-04-02T04:52:46.318331742Z"
+    description: A Helm chart for Kubernetes
+    digest: 7945809b4bc850548327ea754f5798c4fdeabc5eed7e9b12c00c39cd97133a90
+    name: chainlink
+    urls:
+    - chainlink-0.2.9.tgz
+    version: 0.2.9
+  - apiVersion: v1
+    appVersion: 2.5.0
     created: "2024-04-01T19:01:20.266584594Z"
     description: A Helm chart for Kubernetes
     digest: 28c60e01fa91254b15a65b264c31ab4e95fc468a40e747b704c55b8c0a6ab6b9
@@ -1101,4 +1110,4 @@ entries:
     urls:
     - wiremock-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-01T19:01:20.266036381Z"
+generated: "2024-04-02T04:52:46.317808962Z"
