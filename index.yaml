@@ -2,6 +2,18 @@ apiVersion: v1
 entries:
   besu-prysm:
   - apiVersion: v2
+    created: "2024-04-18T17:01:25.622727777Z"
+    dependencies:
+    - name: eth2-common
+      repository: https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
+      version: 0.5.2
+    description: Eth2 private network with Besu and Prysm
+    digest: ebf5c6c01423a86a02e5f779a037ffafe467b01d4f8190a5b7631da62ed907cf
+    name: besu-prysm
+    urls:
+    - besu-prysm-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v2
     created: "2024-03-07T15:01:34.50647585Z"
     dependencies:
     - name: eth2-common
@@ -38,6 +50,15 @@ entries:
     - besu-prysm-0.2.0.tgz
     version: 0.2.0
   chainlink:
+  - apiVersion: v1
+    appVersion: 2.5.0
+    created: "2024-04-18T17:01:25.62314501Z"
+    description: A Helm chart for Kubernetes
+    digest: 8bae71c7c42da9f444c16f539f16c11b50183e2df991df426937462610f51eff
+    name: chainlink
+    urls:
+    - chainlink-0.2.12.tgz
+    version: 0.2.12
   - apiVersion: v1
     appVersion: 2.5.0
     created: "2024-04-08T20:01:23.285276843Z"
@@ -373,6 +394,14 @@ entries:
     version: 0.0.1
   eth2-common:
   - apiVersion: v1
+    created: "2024-04-18T17:01:25.623569367Z"
+    description: Elements shared by different eth2 clients
+    digest: 8e6e3b258584d8801f61fe934baec0f9d7654ee11ff9b388da8297a957d7b771
+    name: eth2-common
+    urls:
+    - eth2-common-0.5.3.tgz
+    version: 0.5.3
+  - apiVersion: v1
     created: "2024-03-07T12:02:10.071163912Z"
     description: Elements shared by different eth2 clients
     digest: a0d96fe3bc1beceb374f1b69ef6497db51b9ca51a8f991c1b803c80234ee9200
@@ -397,6 +426,14 @@ entries:
     - eth2-common-0.5.0.tgz
     version: 0.5.0
   ethereum:
+  - apiVersion: v1
+    created: "2024-04-18T17:01:25.623999093Z"
+    description: Geth private network for reorg tests
+    digest: b11e60829048e88cb7dab3f709ab80c9f78a267c9ab7c786d6a3d2af3e239d91
+    name: ethereum
+    urls:
+    - ethereum-0.0.6.tgz
+    version: 0.0.6
   - apiVersion: v1
     created: "2023-06-14T18:48:29.122984175Z"
     description: Geth private network for reorg tests
@@ -438,6 +475,16 @@ entries:
     - ethereum-0.0.1.tgz
     version: 0.0.1
   foundry:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2024-04-18T17:01:25.624441023Z"
+    description: A Helm chart for foundry, mostly used to run Anvil node
+    digest: 6f2b8c641abcda24838588b06cc9623dc294375684baf1d50e14fc3e0128be9e
+    name: foundry
+    type: application
+    urls:
+    - foundry-0.1.1.tgz
+    version: 0.1.1
   - apiVersion: v2
     appVersion: latest
     created: "2024-03-01T14:45:53.625727802Z"
@@ -623,6 +670,15 @@ entries:
   geth-non-root:
   - apiVersion: v1
     appVersion: 1.12.0
+    created: "2024-04-18T17:01:25.624864267Z"
+    description: A simulated go-ethereum network
+    digest: c9b66146479763fd6774fc8dc16cc86f5172ce8c1d7ad4b3b66fbb791c16a283
+    name: geth-non-root
+    urls:
+    - geth-non-root-0.4.2.tgz
+    version: 0.4.2
+  - apiVersion: v1
+    appVersion: 1.12.0
     created: "2024-03-04T14:46:43.126151204Z"
     description: A simulated go-ethereum network
     digest: 2ac97ab68d7c51dbd3557d5a7fdba84319af984612685542faf2364062fac1d1
@@ -640,6 +696,18 @@ entries:
     - geth-non-root-0.4.0.tgz
     version: 0.4.0
   geth-prysm:
+  - apiVersion: v2
+    created: "2024-04-18T17:01:25.62564908Z"
+    dependencies:
+    - name: eth2-common
+      repository: https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
+      version: 0.5.2
+    description: Eth2 private network with Geth and Prysm
+    digest: 65d5f2c4c995fc4a87f32542e8ff552284029e8eda8b7a800eee79111ba88709
+    name: geth-prysm
+    urls:
+    - geth-prysm-0.2.3.tgz
+    version: 0.2.3
   - apiVersion: v2
     created: "2024-03-07T15:01:34.507240871Z"
     dependencies:
@@ -752,6 +820,39 @@ entries:
   mockserver:
   - apiVersion: v1
     appVersion: 5.11.1
+    created: "2024-04-18T17:01:25.626084748Z"
+    description: Chart to deploy MockServer to Kubernetes.  MockServer enables easy
+      mocking of any system you integrate with via HTTP or HTTPS with clients written
+      in Java, JavaScript and Ruby.  MockServer also includes a proxy that introspects
+      all proxied traffic including encrypted SSL traffic and supports Port Forwarding,
+      Web Proxying (i.e. HTTP proxy), HTTPS Tunneling Proxying (using HTTP CONNECT)
+      and SOCKS Proxying (i.e. dynamic port forwarding).
+    digest: 281d8b3fa5c87e88cb7f7cd1393d6119b11855f178bfde28fb0e8a31d9fc993f
+    home: http://mock-server.com
+    icon: http://mock-server.com/apple-touch-icon.png
+    keywords:
+    - mocking
+    - mock-server
+    - http-mock
+    - http
+    - test
+    - test-server
+    - proxy
+    - http-proxy
+    - socks-proxy
+    - https-proxy
+    maintainers:
+    - email: jamesdbloom+mockserver@gmail.com
+      name: James D Bloom
+    name: mockserver
+    sources:
+    - https://github.com/mock-server/mockserver
+    - https://hub.docker.com/r/mockserver/mockserver
+    urls:
+    - mockserver-5.11.3.tgz
+    version: 5.11.3
+  - apiVersion: v1
+    appVersion: 5.11.1
     created: "2022-05-31T15:11:17.052730366Z"
     description: Chart to deploy MockServer to Kubernetes.  MockServer enables easy
       mocking of any system you integrate with via HTTP or HTTPS with clients written
@@ -817,6 +918,31 @@ entries:
     - mockserver-5.11.1.tgz
     version: 5.11.1
   mockserver-config:
+  - apiVersion: v1
+    appVersion: 5.11.2
+    created: "2024-04-18T17:01:25.626231243Z"
+    description: Chart to provide config to MockServer
+    digest: cac2c3630d39b69abf7f79422adf7a4c48a1eb00e75b9088177f08e6fa373e1e
+    home: http://mock-server.com
+    icon: http://mock-server.com/apple-touch-icon.png
+    keywords:
+    - mocking
+    - mock-server
+    - http-mock
+    - http
+    - test
+    - test-server
+    - proxy
+    - http-proxy
+    - socks-proxy
+    - https-proxy
+    name: mockserver-config
+    sources:
+    - https://github.com/mock-server/mockserver
+    - https://hub.docker.com/r/mockserver/mockserver
+    urls:
+    - mockserver-config-5.11.3.tgz
+    version: 5.11.3
   - apiVersion: v1
     appVersion: 5.11.2
     created: "2022-05-30T21:59:09.331792774Z"
@@ -1032,6 +1158,16 @@ entries:
   schema-registry:
   - apiVersion: v2
     appVersion: 6.2.1
+    created: "2024-04-18T17:01:25.626435205Z"
+    description: A Helm chart for Kubernetes
+    digest: 9d7400cfdf8d2f9a2f3c8f44dfc290aef5a74d4f2676d5b20ad73b9684efa2ca
+    name: schema-registry
+    type: application
+    urls:
+    - schema-registry-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: 6.2.1
     created: "2022-10-24T18:30:49.633228971Z"
     description: A Helm chart for Kubernetes
     digest: bbd51c9c6b0132cc40538be2039197149b042fe07dff21a97755d097f346f7cc
@@ -1061,6 +1197,15 @@ entries:
     - schema-registry-0.1.0.tgz
     version: 0.1.0
   solana-validator:
+  - apiVersion: v1
+    appVersion: 1.16.0
+    created: "2024-04-18T17:01:25.626603611Z"
+    description: A Helm chart for Kubernetes
+    digest: 729f832114e906d38ed41b86bf899c45f29c4c8200ab96ad84911ee8b9f99a03
+    name: solana-validator
+    urls:
+    - solana-validator-0.1.5.tgz
+    version: 0.1.5
   - apiVersion: v1
     appVersion: 1.16.0
     created: "2023-06-14T18:48:29.123658581Z"
@@ -1128,4 +1273,4 @@ entries:
     urls:
     - wiremock-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-08T20:01:23.284656102Z"
+generated: "2024-04-18T17:01:25.621534697Z"
