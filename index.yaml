@@ -477,9 +477,9 @@ entries:
   foundry:
   - apiVersion: v2
     appVersion: latest
-    created: "2024-05-08T15:39:21.31988378Z"
+    created: "2024-05-08T16:14:38.596923767Z"
     description: A Helm chart for foundry, mostly used to run Anvil node
-    digest: 8f919450b41d37d0131eef9f9fbd7c5289d67dd72b7069ddef9753b18fd2c497
+    digest: f62dcd481798fc1b81408802625ec9a8bd1865aac90f13a3cc4e6ca79fe263e9
     name: foundry
     type: application
     urls:
@@ -1332,4 +1332,4 @@ entries:
     urls:
     - wiremock-0.1.0.tgz
     version: 0.1.0
-generated: "2024-05-08T15:39:21.31881554Z"
+generated: "2024-05-08T16:14:38.596292011Z"
