@@ -577,6 +577,15 @@ entries:
     version: 0.1.0
   geth:
   - apiVersion: v1
+    appVersion: 1.13.8
+    created: "2024-06-12T10:39:56.631117939Z"
+    description: A simulated go-ethereum network
+    digest: ae51cf5f2e8094779e1e09fc062ea3bf52c5f3a3bf0e6222be29897499b925d8
+    name: geth
+    urls:
+    - geth-0.4.5.tgz
+    version: 0.4.5
+  - apiVersion: v1
     appVersion: 1.12.2
     created: "2024-04-25T17:01:30.375125939Z"
     description: A simulated go-ethereum network
@@ -1362,4 +1371,4 @@ entries:
     urls:
     - wiremock-0.1.0.tgz
     version: 0.1.0
-generated: "2024-06-05T14:01:20.698713433Z"
+generated: "2024-06-12T10:39:56.630657507Z"
