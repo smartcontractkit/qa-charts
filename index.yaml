@@ -2,6 +2,18 @@ apiVersion: v1
 entries:
   besu-prysm:
   - apiVersion: v2
+    created: "2024-09-17T08:30:58.343173106Z"
+    dependencies:
+    - name: eth2-common
+      repository: https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
+      version: 0.6.0
+    description: Eth2 private network with Besu and Prysm
+    digest: c1a8d62f34c3bfe26e57867cb96b026e979b848c0c7c0aefa89de4908c41bab5
+    name: besu-prysm
+    urls:
+    - besu-prysm-0.3.2.tgz
+    version: 0.3.2
+  - apiVersion: v2
     created: "2024-09-17T08:24:12.81393037Z"
     dependencies:
     - name: eth2-common
@@ -865,6 +877,18 @@ entries:
     version: 0.4.0
   geth-prysm:
   - apiVersion: v2
+    created: "2024-09-17T08:30:58.343972092Z"
+    dependencies:
+    - name: eth2-common
+      repository: https://raw.githubusercontent.com/smartcontractkit/qa-charts/gh-pages/
+      version: 0.6.0
+    description: Eth2 private network with Geth and Prysm
+    digest: 4d13be112b7f70037abe9c5164b6b70f1c9fba825870dfca69825db7b477fd1e
+    name: geth-prysm
+    urls:
+    - geth-prysm-0.3.2.tgz
+    version: 0.3.2
+  - apiVersion: v2
     created: "2024-09-17T08:24:12.814754373Z"
     dependencies:
     - name: eth2-common
@@ -1453,4 +1477,4 @@ entries:
     urls:
     - wiremock-0.1.0.tgz
     version: 0.1.0
-generated: "2024-09-17T08:24:12.812869464Z"
+generated: "2024-09-17T08:30:58.342010808Z"
