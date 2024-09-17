@@ -2,6 +2,18 @@ apiVersion: v1
 entries:
   besu-prysm:
   - apiVersion: v2
+    created: "2024-09-17T08:12:57.520923932Z"
+    dependencies:
+    - name: eth2-common
+      repository: file://../eth2-common
+      version: 0.6.0
+    description: Eth2 private network with Besu and Prysm
+    digest: 703da941bca142f763f08d71c15b2403a2d2d9c64c56fe56b4ea6ed7734b3475
+    name: besu-prysm
+    urls:
+    - besu-prysm-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
     created: "2024-04-18T17:01:25.622727777Z"
     dependencies:
     - name: eth2-common
@@ -402,6 +414,14 @@ entries:
     - eth2-0.0.1.tgz
     version: 0.0.1
   eth2-common:
+  - apiVersion: v1
+    created: "2024-09-17T08:12:57.521334134Z"
+    description: Elements shared by different eth2 clients
+    digest: d3835a5fd3119c14e076f8418b985600de11335a075cbd1a752b7ca1afff1dbd
+    name: eth2-common
+    urls:
+    - eth2-common-0.6.0.tgz
+    version: 0.6.0
   - apiVersion: v1
     created: "2024-04-18T17:01:25.623569367Z"
     description: Elements shared by different eth2 clients
@@ -1409,4 +1429,4 @@ entries:
     urls:
     - wiremock-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-30T21:01:09.354412015Z"
+generated: "2024-09-17T08:12:57.519882284Z"
