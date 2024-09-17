@@ -43,7 +43,7 @@ jobs:
           GITHUB_WORKSPACE: ${{ github.workspace }}
         run: |
           #!/bin/bash
-          charts_dir="$GITHUB_WORKSPACE/main/charts"
+          charts_dir="$GITHUB_WORKSPACE/main/lib/charts"
           package_dir="$GITHUB_WORKSPACE/gh-pages"
 
           # Fetch list of currently packaged charts from gh-pages branch
