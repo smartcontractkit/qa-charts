@@ -1181,6 +1181,28 @@ entries:
     urls:
     - mockserver-config-5.11.2.tgz
     version: 5.11.2
+  parrot:
+  - apiVersion: v2
+    appVersion: 0.6.1
+    created: "2025-11-03T22:05:14.815969937Z"
+    description: Parrot enables dynamic mocking of HTTP calls.
+    digest: 57b50faccac81dd325daa4a393448ca3863b1c1df926d3fe849ad38f535eb954
+    home: https://github.com/smartcontractkit/chainlink-testing-framework/tree/main/parrot
+    keywords:
+    - mocking
+    - mock-server
+    - http-mock
+    - http
+    - test
+    - test-server
+    name: parrot
+    sources:
+    - https://github.com/smartcontractkit/chainlink-testing-framework/tree/main/parrot
+    - https://hub.docker.com/repository/docker/kalverra/parrot/general
+    type: application
+    urls:
+    - parrot-0.1.0.tgz
+    version: 0.1.0
   polygon-edge:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -1486,4 +1508,4 @@ entries:
     urls:
     - wiremock-0.1.0.tgz
     version: 0.1.0
-generated: "2024-10-22T13:06:34.479351181Z"
+generated: "2025-11-03T22:05:14.815588345Z"
